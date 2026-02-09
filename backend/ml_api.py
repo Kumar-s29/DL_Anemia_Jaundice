@@ -297,3 +297,8 @@ async def gradcam(image: UploadFile = File(...), analysis_type: str = Form(...))
         return JSONResponse(status_code=200, content={'png_bytes_base64': base64.b64encode(png_bytes).decode('utf-8')})
     except Exception as e:
         return JSONResponse(status_code=500, content={'error': str(e)})
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
